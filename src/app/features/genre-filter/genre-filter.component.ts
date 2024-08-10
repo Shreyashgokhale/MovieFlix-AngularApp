@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { Genre, REQUIRED_GENRE } from '../../utils/constants';
 import { MovieApisService } from '../../services/movie-apis.service';
 
@@ -16,25 +15,25 @@ export class GenreFilterComponent {
   genres: Genre[] | undefined;
   selectedGenres: string[] = ['All'];
 
-  constructor(private movieService: MovieApisService, private cdr: ChangeDetectorRef) { }
+  constructor(private movieService: MovieApisService) { }
 
   ngOnInit(): void {
-    // Fetch genres on component initialization
+    this.getFilters();
+  }
+
+  // To get filters from API
+  getFilters() {
     this.movieService.getGenres().subscribe(data => {
-      this.genres = data.genres.filter((genre: { name: any; }) => REQUIRED_GENRE.includes(genre.name))
-      .map((genre: { name: string }) => {
-        // Rename "Science Fiction" to "Sci-Fi"
-        if (genre.name.toLowerCase() === 'science fiction') {
-          genre.name = 'Sci-Fi';
-        }
-        return genre;
-      });;
+      this.genres = data.genres.filter((genre: { name: any; }) => REQUIRED_GENRE.includes(genre.name));
     });
   }
+
+  // To update multiple filtes
   selectGenre(genre: string) {
     if (genre === 'All') {
       this.selectedGenres = ['All'];
-    } else {
+    }
+    else {
       // Remove 'All' if any other genre is selected
       if (this.selectedGenres.includes('All')) {
         this.selectedGenres = [];
@@ -52,12 +51,11 @@ export class GenreFilterComponent {
         this.selectedGenres = ['All'];
       }
     }
-    
+
     this.genreSelected.emit(this.selectedGenres);
   }
 
   isSelected(genre: string): boolean {
     return this.selectedGenres.includes(genre);
-    this.cdr.detectChanges(); // Manually trigger change detection
   }
 }

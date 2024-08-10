@@ -4,7 +4,7 @@
     margin-bottom: 16px;
     border-radius: 8px;
     overflow: hidden;
-    width: 400px;
+    width: 350px;
     height: 225px;
 }
 
@@ -38,9 +38,53 @@
 
 .movie-title {
     font-family: 'Georgia', serif;
-    font-size: 20px;
+    font-size: 16px;
     color: #333;
     text-transform: capitalize;
     margin-bottom: 10px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: darkblue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.movie-info {
+    font-size: 14px;
+    color: #333;
+    /* Default text color */
+    margin: 10px 0;
+}
+
+.movie-info strong {
+    color: #ff6600;
+    /* Highlight color for the labels */
+}
+
+.release-date,
+.imdb-rating {
+    margin: 5px 0;
+}
+
+.imdb-rating {
+    /* Slightly darker color for IMDb rating */
+    font-weight: bold;
+}
+
+.imdb-rating strong {
+    font-weight: bold;
+    /* Different color for IMDb label */
+}
+
+.movie-details .imdb-rating:before {
+    content: '⭐ ';
+    /* Adding a star icon before IMDb rating */
+    color: #f0ad4e;
 }

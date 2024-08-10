@@ -1,4 +1,4 @@
-/* Container for the genre filter, logo, and text */
+/* Styles for the genre filter, logo, text & smaller screens */
 .genre-filter {
     display: flex;
     flex-wrap: wrap;
@@ -9,7 +9,6 @@
     background-color: black;
 }
 
-/* Buttons for the genres */
 .genre-filter button {
     margin: 4px;
     padding: 8px;
@@ -24,19 +23,16 @@
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Active state for the selected button */
 .genre-filter button.active {
     background-color: #ff6600 !important;
     color: white !important;
 }
 
-/* Hover effect for the genre buttons */
 .genre-filter button:hover {
     background-color: #ff6600;
     color: white;
 }
 
-/* Logo styling */
 .logo {
     width: 40px;
     height: 40px;
@@ -45,7 +41,6 @@
     border: 1px solid #f0f0f0;
 }
 
-/* Text styling for the logo */
 .logo-text {
     font-family: "Oswald", sans-serif;
     font-size: 24px;
