@@ -1,0 +1,15 @@
+<div class="genre-filter">
+    <img src="assets/MovieFlix.PNG" alt="MovieFlix Logo" class="logo">
+    <div class="logo-text">MovieFlix</div>
+    <div>
+        <button
+            [ngClass]="{ 'active': isSelected('All') }"
+            (click)="selectGenre('All')">All</button>
+        <button
+            *ngFor="let genre of genres"
+            [ngClass]="{ 'active': isSelected(genre.name) }"
+            (click)="selectGenre(genre.name)">
+            {{ genre.name }}
+        </button>
+    </div>
+</div>

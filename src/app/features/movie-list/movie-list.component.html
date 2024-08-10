@@ -1,0 +1,10 @@
+<div>
+    <div *ngFor="let movieByYear of movies">
+        <div *ngIf="movieByYear.data.length > 0" class="year-label">{{ movieByYear.year }}</div>
+        <div class="movie-list">
+            <div *ngFor="let movie of movieByYear.data" class="movie-section">
+                <app-movie-card [movie]="movie"></app-movie-card>
+            </div>
+        </div>
+    </div>
+</div>

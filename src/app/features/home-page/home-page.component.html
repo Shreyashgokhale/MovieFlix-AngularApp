@@ -1,0 +1,4 @@
+<div class="sticky-header">
+    <app-genre-filter (genreSelected)="filterMovies($event)"></app-genre-filter>
+</div>
+<app-movie-list [movies]="filteredMovies"></app-movie-list>

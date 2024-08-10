@@ -1,0 +1,15 @@
+<div class="movie-card">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
+    <div class="movie-details">
+        <div class="movie-title">{{ movie.title }}</div>
+        <p class="fs-12px">{{ movie.overview | slice: 0:150 }}...
+            <a (click)="showFullOverview()">Read More</a>
+        </p>
+        <!-- <div class="overview">
+            <p [class.collapsed]="!showFullText">{{ movie.overview }}</p>
+            <a (click)="toggleText()">{{ showFullText ? 'Show Less' : 'Show More' }}</a>
+          </div> -->
+        <p class="fs-14px"><strong>Release Date:</strong> {{ movie.release_date }}</p>
+        <p class="fs-14px"><strong>Vote Count: </strong>{{ movie.vote_count }}</p>
+    </div>
+</div>
